@@ -72,7 +72,7 @@ const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
 
 const flipTile = (playerBoard, bombBoard, rowIndex, columnIndex) => {
     // Check if tile is already fliped if so, return
-    if (playerBoard[rowIndex][columnIndex] !== ' ') {
+if (playerBoard[rowIndex][columnIndex] !== ' This tile has already been flipped! ') {
         return;
     }
     // Check if tile is bomb if so, place bomb on player board
@@ -96,10 +96,10 @@ const bombBoard = generateBombBoard(3, 3, 3);
 printBoard(bombBoard);
 console.log(getNumberOfNeighborBombs(bombBoard, 0, 0));
 
-// console.log('Player Board: ');
-// printBoard(playerBoard);
-// console.log('Bomb Board: ');
-// printBoard(bombBoard);
-// flipTile(playerBoard, bombBoard, 1, 1);
-// console.log('Player Board: ');
-// printBoard(playerBoard);
+console.log('Player Board: ');
+printBoard(playerBoard);
+console.log('Bomb Board: ');
+printBoard(bombBoard);
+flipTile(playerBoard, bombBoard, 1, 1);
+console.log('Updated Player Board : ');
+printBoard(playerBoard);
