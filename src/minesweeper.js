@@ -4,8 +4,10 @@ class Game {
     }
     playMove(rowIndex, columnIndex) {
         this.board.flipTile(rowIndex, columnIndex);
+
         if (this.board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log('Game is Over');
+            this,board.print();
         } else if (this.board.playerBoard[rowIndex][columnIndex] === '') {
             console.log('Congratulations you have won!');
         } else {
@@ -146,5 +148,5 @@ flipTile(playerBoard, bombBoard, 1, 1);
 console.log('Updated Player Board : ');
 printBoard(playerBoard);
 
-const g = new Game(3, 3, 3);
-playMove(4, 6);
+const g = new Game(3, 3, 4);
+game.playMove(4, 6);
