@@ -18,6 +18,11 @@ class Game {
     }
 }
 
+const game = new Game(3, 3, 4);
+game.playMove(1,1);
+
+
+
 class Board {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         this._numberOfBombs = numberOfBombs;
@@ -96,7 +101,6 @@ class Board {
         return board;
     }
 
-
     static generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs) {
         const board = [];
         for (let rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
@@ -130,19 +134,13 @@ board.flipTile(1, 1);
 board.print();
 
 
-const playerBoard = generatePlayerBoard(3, 3);
-const bombBoard = generateBombBoard(3, 3, 3);
+// const playerBoard = generatePlayerBoard(3, 3);
+// const bombBoard = generateBombBoard(3, 3, 3);
 
-printBoard(bombBoard);
+// printBoard(bombBoard);
 console.log(getNumberOfNeighborBombs(bombBoard, 0, 0));
 
-console.log('Player Board: ');
-printBoard(playerBoard);
-console.log('Bomb Board: ');
-printBoard(bombBoard);
-flipTile(playerBoard, bombBoard, 1, 1);
-console.log('Updated Player Board : ');
-printBoard(playerBoard);
 
-const g = new Game(3, 3, 4);
-game.playMove(4, 6);
+// print(board) {
+//     console.log(board.map(row => row.join(' | ')).join('\n'));
+// }
