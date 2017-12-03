@@ -22,7 +22,7 @@ class Board {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         this._numberOfBombs = numberOfBombs;
         this._numberOfTiles = (numberOfRows * numberOfColumns);
-        this.playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
+        this._playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
         this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
     }
 
