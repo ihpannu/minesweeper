@@ -124,7 +124,6 @@ class Board {
     }
 
 
-
 }
 
 const board = new Board(3, 3, 4);
