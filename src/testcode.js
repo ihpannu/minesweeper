@@ -7,7 +7,7 @@ class Game {
 
         if (this.board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log('Game is Over');
-            this, board.print();
+            this.board.print();
         } else if (this.board.playerBoard[rowIndex][columnIndex] === '') {
             console.log('Congratulations you have won!');
         } else {
