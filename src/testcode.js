@@ -135,10 +135,6 @@ class Board {
 
 const board = new Board(3, 3, 4);
 console.log('Current Board');
-board.print();
-board.flipTile(1, 1);
-board.print();
-
 
 const game = new Game(3, 3, 4);
 game.playMove(1, 1);
