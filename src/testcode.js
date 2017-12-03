@@ -2,30 +2,31 @@ class Game {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         this._board = new Board(numberOfRows, numberOfColumns, numberOfBombs);
     }
+
     playMove(rowIndex, columnIndex) {
         this.board.flipTile(rowIndex, columnIndex);
 
         if (this.board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log('Game is Over');
             this.board.print();
-        }
-        
-        if (this.board.hasSafeTiles()[rowIndex][columnIndex] === '') {
-            console.log('Congratulations you have won!');
-        } else {
-            console.log('Current Board: ');
-            print(board);
-        }
 
+        } else if (this.board.hasSafeTiles()) {
+            console.log('Current Board: ');
+            this.board.print();
+
+        } else {
+            console.log('Congratulation on winning! Below is your winning board: ');
+            this._board.print();
+        }
     }
 }
-
 
 
 class Board {
     constructor(numberOfRows, numberOfColumns, numberOfBombs) {
         this._numberOfBombs = numberOfBombs;
         this._numberOfTiles = (numberOfRows * numberOfColumns);
+
         this._playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
         this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
     }
@@ -36,21 +37,6 @@ class Board {
 
     hasSafeTiles() {
         return this._numberOfBombs !== this._numberOfTiles;
-    }
-    
-    flipTile(rowIndex, columnIndex) {
-        // Check if tile is already fliped if so, return
-        if (this._playerBoard[rowIndex][columnIndex] !== ' This tile has already been flipped! ') {
-            return;
-        }
-        // Check if tile is bomb if so, place bomb on player board
-
-        if (this._bombBoard[rowIndex][columnIndex] === 'B') {
-            this._playerBoard[rowIndex][columnIndex] = 'B';
-        } else {
-            this._playerBoard[rowIndex][columnIndex] = this.getNumberOfNeighborBombs(rowIndex, columnIndex);
-        }
-        this._numberOfTiles--;
     }
 
     getNumberOfNeighborBombs(rowIndex, columnIndex) {
@@ -86,6 +72,26 @@ class Board {
 
         return numberOfSurroundingBombs;
     }
+
+
+    flipTile(rowIndex, columnIndex) {
+        // Check if tile is already fliped if so, return
+        if (this._playerBoard[rowIndex][columnIndex] !== ' This tile has already been flipped! ') {
+            return;
+        }
+
+        this._numberOfTiles--;
+
+        // Check if tile is bomb if so, place bomb on player board
+
+        if (this._bombBoard[rowIndex][columnIndex] === 'B') {
+            this._playerBoard[rowIndex][columnIndex] = 'B';
+        } else {
+            this._playerBoard[rowIndex][columnIndex] = this.getNumberOfNeighborBombs(rowIndex, columnIndex);
+        }
+        
+    }
+
 
 
     static generatePlayerBoard(numberOfRows, numberOfColumns) {
