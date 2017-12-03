@@ -8,7 +8,9 @@ class Game {
         if (this.board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log('Game is Over');
             this.board.print();
-        } else if (this.board.playerBoard[rowIndex][columnIndex] === '') {
+        }
+        
+        if (this.board.hasSafeTiles()[rowIndex][columnIndex] === '') {
             console.log('Congratulations you have won!');
         } else {
             console.log('Current Board: ');
@@ -17,9 +19,6 @@ class Game {
 
     }
 }
-
-const game = new Game(3, 3, 4);
-game.playMove(1,1);
 
 
 
@@ -35,6 +34,10 @@ class Board {
         return this._playerBoard;
     }
 
+    hasSafeTiles() {
+        return this._numberOfBombs !== this._numberOfTiles;
+    }
+    
     flipTile(rowIndex, columnIndex) {
         // Check if tile is already fliped if so, return
         if (this._playerBoard[rowIndex][columnIndex] !== ' This tile has already been flipped! ') {
@@ -84,9 +87,6 @@ class Board {
         return numberOfSurroundingBombs;
     }
 
-    hasSafeTiles() {
-        return this._numberOfTiles !== this._numberOfBombs;
-    }
 
     static generatePlayerBoard(numberOfRows, numberOfColumns) {
         const board = [];
@@ -134,13 +134,5 @@ board.flipTile(1, 1);
 board.print();
 
 
-// const playerBoard = generatePlayerBoard(3, 3);
-// const bombBoard = generateBombBoard(3, 3, 3);
-
-// printBoard(bombBoard);
-console.log(getNumberOfNeighborBombs(bombBoard, 0, 0));
-
-
-// print(board) {
-//     console.log(board.map(row => row.join(' | ')).join('\n'));
-// }
+const game = new Game(3, 3, 4);
+game.playMove(1, 1);
