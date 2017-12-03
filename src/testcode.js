@@ -26,9 +26,9 @@ class Board {
         this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
     }
 
-    // get playerBoard() {
-    //     return this.playerBoard;
-    // }
+    get playerBoard() {
+        return this._playerBoard;
+    }
 
     flipTile(rowIndex, columnIndex) {
         // Check if tile is already fliped if so, return
@@ -38,9 +38,9 @@ class Board {
         // Check if tile is bomb if so, place bomb on player board
 
         if (this._bombBoard[rowIndex][columnIndex] === 'B') {
-            this._playerBoard[rowIndex][columnIndex] = 'B';
+            this._playerBoard[rowIndex][columnIndex] === 'B';
         } else {
-            this._playerBoard[rowIndex][columnIndex] = this.getNumberOfNeighborBombs(rowIndex, columnIndex);
+            this._playerBoard[rowIndex][columnIndex] === this.getNumberOfNeighborBombs(rowIndex, columnIndex);
         }
         this._numberOfTiles--;
     }
