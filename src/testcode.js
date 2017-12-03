@@ -38,9 +38,9 @@ class Board {
         // Check if tile is bomb if so, place bomb on player board
 
         if (this._bombBoard[rowIndex][columnIndex] === 'B') {
-            this._playerBoard[rowIndex][columnIndex] === 'B';
+            this._playerBoard[rowIndex][columnIndex] = 'B';
         } else {
-            this._playerBoard[rowIndex][columnIndex] === this.getNumberOfNeighborBombs(rowIndex, columnIndex);
+            this._playerBoard[rowIndex][columnIndex] = this.getNumberOfNeighborBombs(rowIndex, columnIndex);
         }
         this._numberOfTiles--;
     }
@@ -59,8 +59,8 @@ class Board {
             ];
         return '1';
 
-        const numberOfRows = bombBoard.length;
-        const numberOfColumns = bombBoard[0].length;
+        const numberOfRows = this._bombBoard.length;
+        const numberOfColumns = this._bombBoard[0].length;
 
         let numberOfSurroundingBombs = 0;
         neighborOffsets.forEach(offset => {
