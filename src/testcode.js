@@ -89,16 +89,13 @@ class Board {
         for (let rowsIndex = 0; rowsIndex < numberOfRows; rowsIndex++) {
             const row = [];
             for (let columnsIndex = 0; columnsIndex < numberOfColumns; columnsIndex++) {
-                row.push(null);
+                row.push(' ');
             }
             board.push(row);
         }
         return board;
     }
 
-    print(board) {
-        console.log(board.map(row => row.join(' | ')).join('\n'));
-    }
 
     static generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs) {
         const board = [];
