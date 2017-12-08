@@ -7,7 +7,7 @@ class Game {
 
         if (this.board.playerBoard[rowIndex][columnIndex] === 'B') {
             console.log('Game is Over');
-            this,board.print();
+            this.board.print();
         } else if (this.board.playerBoard[rowIndex][columnIndex] === '') {
             console.log('Congratulations you have won!');
         } else {
@@ -26,9 +26,9 @@ class Board {
         this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
     }
 
-    // get playerBoard() {
-    //     return this.playerBoard;
-    // }
+    get playerBoard() {
+        return this.playerBoard;
+    }
 
     flipTile(rowIndex, columnIndex) {
         // Check if tile is already fliped if so, return
