@@ -14,7 +14,7 @@
     "babel-preset-env": "^1.6.1"
   },
   "dependencies": {
-    "jshint": "^2.9.5",
+    "jshint": "^2.13.6",
     "tslint": "^5.8.0"
   }
 }
